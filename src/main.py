@@ -1,3 +1,4 @@
+import os
 import sys
 
 from clean_copy_paste import clean_copy_paste
@@ -9,8 +10,8 @@ def main():
         basepath = sys.argv[1]
     else:
         basepath = "/"
-    clean_copy_paste("static", "docs")
-    generate_pages_recursive("content", "template.html", "docs", basepath)
+    clean_copy_paste(basepath + "static", basepath + "docs")
+    generate_pages_recursive(basepath + "content", basepath + "template.html", basepath + "docs", basepath)
 
 
 
