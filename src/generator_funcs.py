@@ -24,11 +24,11 @@ def generate_page(from_path, template_path, dest_path, basepath):
 
     html_page = template_content.replace("{{ Title }}", title)
     html_page = html_page.replace("{{ Content }}", html_content)
-    html_page = html_page.replace('href="/', f'href="{basepath}')
-    html_page = html_page.replace('src="/', f'src="{basepath}')
+    html_page = html_page.replace('href="/', 'href="' + basepath)
+    html_page = html_page.replace('src="/', 'src="' + basepath)
     
     if not os.path.exists(os.path.dirname(dest_path)):
-        os.makedirs(os.path.dirname(dest_path))
+        os.makedirs(os.path.dirname(dest_path), exist_ok=True)
 
     with open(dest_path, mode="w") as f:
         f.write(html_page)
