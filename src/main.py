@@ -1,9 +1,11 @@
-from textnode import *
+from clean_copy_paste import clean_copy_paste
+from generator_funcs import generate_pages_recursive
 
 
 def main():
-    node = TextNode("This is some text", "code", "https://www.boot.dev")
-    print(node)
+    clean_copy_paste()
+    generate_pages_recursive("content", "template.html", "public")
+
 
 
 if __name__ == "__main__":
